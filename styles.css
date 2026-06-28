@@ -121,8 +121,36 @@ h1 {
     transform: translateY(-2px);
 }
 
+.scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 40px;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+}
+
+.scroll-hint p {
+    font-size: 0.9em;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 300;
+}
+
+.scroll-arrow {
+    font-size: 1.5em;
+    line-height: 1;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(10px); }
+}
+
 @media (max-width: 768px) {
     h1 { font-size: 3.5em; }
     .tagline { font-size: 1.05em; }
     .cloud { width: 160px; height: 105px; }
+    .scroll-hint { bottom: 30px; }
 }

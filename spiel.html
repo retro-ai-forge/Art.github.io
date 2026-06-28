@@ -21,13 +21,11 @@
 
         header {
             position: relative;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
             text-align: center;
-            overflow: hidden;
             padding-top: 40px;
         }
 
@@ -65,13 +63,22 @@
         }
 
         .portrait {
-            width: 280px;
-            max-width: 70vw;
-            aspect-ratio: 3 / 4;
+            width: 100vw;
+            height: 100vh;
             object-fit: cover;
-            border-radius: 10px;
             box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
             margin-bottom: 30px;
+            margin-left: calc(-50vw + 50%);
+            margin-top: -40px;
+        }
+
+        @media (max-width: 768px) {
+            .portrait {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 3 / 4;
+                margin-left: 0;
+            }
         }
 
         .content {
@@ -237,7 +244,7 @@
 
             <h2>About Me</h2>
             <div class="about-me">
-                <p>[Text – About Me von Filmmakers einfügen]</p>
+                <p>Hier kommt dein About-Me Text...</p>
             </div>
 
             <h2>Showreel</h2>
@@ -246,20 +253,20 @@
             </div>
 
             <h2>Clownsnummer</h2>
-            <div class="showreel">
-                <p style="text-align: center; padding: 20px; opacity: 0.7;">[Video der Clownsnummer – Filmmakers-Link einfügen]</p>
+            <div style="text-align: center; margin: 40px 0;">
+                <a href="https://www.filmmakers.eu/de/actors/ruth-spichtig/video/43506" target="_blank" class="profile-link">Clownsnummer auf Filmmakers anschauen →</a>
             </div>
 
             <h2>Profil</h2>
             <ul class="facts">
-                <li><strong>Geboren</strong>Sarnen, Schweiz</li>
-                <li><strong>Größe</strong>164 cm</li>
-                <li><strong>Augen / Haare</strong>Blau / Dunkelblond</li>
-                <li><strong>Ausbildung</strong>HfS Ernst Busch Berlin (1992–1996)</li>
-                <li><strong>Sprachen</strong>Deutsch (Muttersprache), Englisch, Französisch, Italienisch</li>
-                <li><strong>Akzent</strong>Französisch</li>
-                <li><strong>Dialekte</strong>Bühnendeutsch, Luzern (Muttersprache), Obwalden, Basel, Bern, Berlin, Schweizerdeutsch</li>
-                <li><strong>Fächer</strong>Clown, Comedienne, Moderation, Sprecherin, Synchron</li>
+                <li><strong>Geboren</strong> Sarnen, Schweiz</li>
+                <li><strong>Größe</strong> 164 cm</li>
+                <li><strong>Augen / Haare</strong> Blau / Dunkelblond</li>
+                <li><strong>Ausbildung</strong> HfS Ernst Busch Berlin (1992–1996)</li>
+                <li><strong>Sprachen</strong> Deutsch (Muttersprache), Englisch, Französisch, Italienisch</li>
+                <li><strong>Akzent</strong> Französisch</li>
+                <li><strong>Dialekte</strong> Bühnendeutsch, Luzern (Muttersprache), Obwalden, Basel, Bern, Berlin, Schweizerdeutsch</li>
+                <li><strong>Fächer</strong> Clown, Comedienne, Moderation, Sprecherin, Synchron</li>
             </ul>
 
             <h2>Ausgewählte Rollen</h2>
@@ -275,8 +282,8 @@
 
             <h2>Agentur</h2>
             <ul class="facts">
-                <li><strong>Vermittlung</strong>ZAV-Künstlervermittlung Berlin</li>
-                <li><strong>Kontakt</strong>Daniel Philippen</li>
+                <li><strong>Vermittlung</strong> ZAV-Künstlervermittlung Berlin</li>
+                <li><strong>Kontakt</strong> Daniel Philippen</li>
             </ul>
 
             <div style="text-align: center;">

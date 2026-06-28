@@ -21,13 +21,11 @@
 
         header {
             position: relative;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             align-items: center;
             text-align: center;
-            overflow: hidden;
             padding-top: 40px;
         }
 
@@ -65,13 +63,12 @@
         }
 
         .hero-image {
-            width: 100%;
-            max-width: 700px;
-            aspect-ratio: 4 / 3;
+            width: 100vw;
+            height: 70vh;
             object-fit: cover;
-            border-radius: 10px;
             box-shadow: 0 18px 50px rgba(0, 0, 0, 0.5);
             margin-bottom: 40px;
+            margin-left: calc(-50vw + 50%);
         }
 
         .content {
@@ -139,6 +136,34 @@
             border-radius: 8px;
         }
 
+        .film-posters img {
+            cursor: pointer;
+        }
+
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .lightbox.active {
+            display: flex;
+        }
+
+        .lightbox-image {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+
         @media (max-width: 768px) {
             h1 { font-size: 2.5em; }
             .description { font-size: 1em; }
@@ -161,27 +186,48 @@
         <div class="content">
             <h1>Film</h1>
             <div class="description">
-                <p>Filmemacherei ist das Zusammenspiel von Bild, Ton und Zeit. Eine Geschichte erzählen durch Bilder, die das Herz berühren und den Geist bewegen.</p>
+                <p>Filme erlauben Haltungen und Erkundungen zu Lebensthemen mit oder ohne Dialog in bewegten Bildern erlebbar, erfahrbar zu machen. Zeit, Schnitt verdichtet die notwendig erlebbare Aussage.</p>
                 <p style="margin-top: 20px;">Jeder Frame ist eine Komposition, jede Szene ein Gedanke, jeder Film eine vollständige Welt.</p>
+                <p style="margin-top: 20px;">Dokumentarfilme folgen einer Idee ohne den Ausgang beim Start zu kennen. Kurzfilme verpacken Pointen anders als fiktionale Langfilme für TV oder Kino.</p>
+                <p style="margin-top: 20px;">Drehbücher sind Arbeitsanweisungen für Kamera, Ton, Spieler und Schnitt, wo der Film erst entsteht.</p>
+                <p style="margin-top: 20px;">Budget beeinflusst Material, Look, Location, Vertrieb, ja Existenz einer bildhaft sinnlichen Erfahrungsgeschichte, weshalb es viel stärker Teamarbeit erfordert als Malerei und Skulptur. Das Produkt aber ist immer der bewegte Zuschauer, jedes Kunstwerk wird erst durch den interessierten Zuschauer vollendet.</p>
             </div>
-
             <h2 style="color: #a6e785; margin-top: 60px;">Unbeleuchtet</h2>
 
             <div class="film-section">
                 <div class="film-posters">
-                    <!-- Plakate hier einfügen -->
+                    <img src="images/film/unbeleuchtet3.jpg" alt="Unbeleuchtet Poster">
+                    <img src="images/film/unbeleuchtet2.jpg" alt="Unbeleuchtet Poster 2">
                 </div>
             </div>
 
-            <div class="content" style="margin-top: 40px;">
-                <h3 style="color: #a6e785; font-size: 1.3em; margin-bottom: 20px;">Interview</h3>
-                <div class="video-container">
-                    <p style="text-align: center; opacity: 0.7;">[Video von Unbeleuchtet – Filmmakers-Link einfügen]</p>
-                </div>
-            </div>
+            <img src="images/film/zeitung-stars.jpg" alt="Zeitung Stars" class="clickable-image" style="width: 100%; max-width: 700px; margin: 60px auto 40px; display: block; border-radius: 8px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); cursor: pointer;">
+
+
 
             <a href="index.html" class="nav-back" style="margin-top: 60px;">← Zurück</a>
         </div>
     </header>
+
+    <div id="lightbox" class="lightbox">
+        <img id="lightbox-image" class="lightbox-image" src="" alt="">
+    </div>
+
+    <script>
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const clickableImages = document.querySelectorAll('.film-posters img, .clickable-image');
+
+        clickableImages.forEach(img => {
+            img.addEventListener('click', (e) => {
+                lightboxImage.src = img.src;
+                lightbox.classList.add('active');
+            });
+        });
+
+        lightbox.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+        });
+    </script>
 </body>
 </html>
