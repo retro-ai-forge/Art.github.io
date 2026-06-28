@@ -17,41 +17,11 @@ header {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
-    overflow: hidden;
     padding-top: 40px;
-}
-
-.content {
-    position: absolute;
-    bottom: 40px;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 0 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-}
-
-h1 {
-    font-size: 6em;
-    margin-bottom: 15px;
-    font-weight: 300;
-    letter-spacing: 4px;
-}
-
-.tagline {
-    font-size: 1.2em;
-    margin-bottom: 20px;
-    font-weight: 300;
-    letter-spacing: 1px;
-    opacity: 0.75;
+    padding-bottom: 60px;
 }
 
 .clouds {
@@ -59,7 +29,6 @@ h1 {
     width: 720px;
     max-width: 90vw;
     height: 440px;
-    margin-bottom: 60px;
 }
 
 .cloud {
@@ -75,8 +44,6 @@ h1 {
     letter-spacing: 2px;
     text-transform: uppercase;
     opacity: 0.92;
-    /* alle Wörter laufen auf derselben großen liegenden Acht (∞);
-       Tempo und Versatz werden per JavaScript zufällig gesetzt */
     animation-name: figure8;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
@@ -99,13 +66,40 @@ h1 {
     text-shadow: 0 4px 24px rgba(255, 255, 255, 0.5);
 }
 
+.header-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    text-align: center;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 6em;
+    font-weight: 300;
+    letter-spacing: 4px;
+}
+
+.tagline {
+    font-size: 1.2em;
+    font-weight: 300;
+    letter-spacing: 1px;
+    opacity: 0.75;
+}
+
 .scroll-hint {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 8px;
     opacity: 0.7;
     animation: bounce 2s infinite;
+    width: 100%;
+    margin: 0 auto;
 }
 
 .scroll-hint p {
@@ -152,36 +146,26 @@ h1 {
     transform: translateY(-2px);
 }
 
-.scroll-hint {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 40px;
-    opacity: 0.7;
-    animation: bounce 2s infinite;
-}
-
-.scroll-hint p {
-    font-size: 0.9em;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-weight: 300;
-}
-
-.scroll-arrow {
-    font-size: 1.5em;
-    line-height: 1;
-}
-
-@keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); }
-    50% { transform: translateX(-50%) translateY(10px); }
-}
-
 @media (max-width: 768px) {
     h1 { font-size: 3.5em; }
     .tagline { font-size: 1.05em; }
     .cloud { width: 160px; height: 105px; }
-    .scroll-hint { bottom: 30px; }
+
+    header {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .header-bottom {
+        width: 100%;
+        padding: 0 20px;
+    }
+
+    .scroll-hint {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
 }
