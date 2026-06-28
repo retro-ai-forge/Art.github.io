@@ -92,12 +92,10 @@ h1 {
 
 .scroll-hint {
     display: flex;
-    flex-direction: column;
+    flex-direction: row !important;
     align-items: center;
     justify-content: center;
-    gap: 8px;
-    opacity: 0.7;
-    animation: bounce 2s infinite;
+    gap: 20px;
     width: 100%;
     margin: 0 auto;
 }
@@ -107,11 +105,18 @@ h1 {
     letter-spacing: 1px;
     text-transform: uppercase;
     font-weight: 300;
+    margin: 0;
+    animation: fade 2s infinite;
 }
 
-.scroll-arrow {
+.arrow {
     font-size: 1.5em;
-    line-height: 1;
+    animation: fade 2s infinite;
+}
+
+@keyframes fade {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 1; }
 }
 
 @keyframes bounce {
