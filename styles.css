@@ -55,9 +55,7 @@ header {
     letter-spacing: 2px;
     text-transform: uppercase;
     opacity: 0.92;
-    animation-name: figure8;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+    animation: figure8 8s linear infinite, centerGlow 8s ease-in-out infinite;
 }
 
 @keyframes figure8 {
@@ -70,6 +68,14 @@ header {
     75%    { transform: translate(-290px, 0); }
     87.5%  { transform: translate(-200px, 150px); }
     100%   { transform: translate(0, 0); }
+}
+
+@keyframes centerGlow {
+    0%     { text-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+    45%    { text-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+    50%    { text-shadow: 0 0 50px rgba(255, 255, 255, 1), 0 0 100px rgba(255, 255, 255, 0.6); }
+    55%    { text-shadow: 0 0 0 rgba(255, 255, 255, 0); }
+    100%   { text-shadow: 0 0 0 rgba(255, 255, 255, 0); }
 }
 
 .cloud:hover {
@@ -117,17 +123,17 @@ h1 {
     text-transform: uppercase;
     font-weight: 300;
     margin: 0;
-    animation: fade 2s infinite;
+    animation: fade 3s infinite;
 }
 
 .arrow {
     font-size: 1.5em;
-    animation: fade 2s infinite;
+    animation: fade 3s infinite;
 }
 
 @keyframes fade {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 1; }
+    0%, 100% { opacity: 0.15; }
+    50% { opacity: 0.4; }
 }
 
 @keyframes bounce {
