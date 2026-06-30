@@ -109,31 +109,23 @@ h1 {
 
 .scroll-hint {
     display: flex;
-    flex-direction: row !important;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.scroll-hint p {
-    font-size: 0.9em;
-    letter-spacing: 1px;
+    gap: 0.3rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
-    font-weight: 300;
-    margin: 0;
-    animation: fade 3s infinite;
+    animation: scrollHintPulse 2.5s ease-in-out infinite;
 }
 
-.arrow {
-    font-size: 1.5em;
-    animation: fade 3s infinite;
+.scroll-triangle {
+    font-size: 1.5rem;
+    line-height: 1;
 }
 
-@keyframes fade {
-    0%, 100% { opacity: 0.15; }
-    50% { opacity: 0.4; }
+@keyframes scrollHintPulse {
+    0%, 100% { opacity: 0.15; transform: translateY(0); }
+    50%       { opacity: 1.0;  transform: translateY(8px); }
 }
 
 @keyframes bounce {
@@ -185,9 +177,6 @@ h1 {
 
     .scroll-hint {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        flex-direction: row;
     }
 }
