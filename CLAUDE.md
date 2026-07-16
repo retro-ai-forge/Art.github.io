@@ -19,3 +19,20 @@ linked from `index.html` with a version query string:
 The other pages (`art.html`, `film.html`, `spiel.html`, `wort.html`) use
 inline `<style>`/`<script>` blocks, not the shared files, so they don't need
 versioning.
+
+## Page-level no-cache
+
+Editing the *text/content* of an HTML page (e.g. inline copy in `art.html`)
+isn't helped by query-string versioning — the page itself is the thing that
+needs to stay fresh, not a linked asset. Every page's `<head>` therefore
+includes:
+
+```html
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+```
+
+This tells the browser to always revalidate that document instead of serving
+a cached copy, so content edits show up on the next reload. Keep these tags
+in any new page added to the site.
